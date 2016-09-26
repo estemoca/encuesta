@@ -1,0 +1,6 @@
+
+base_url = http://localhost/movethebox/
+dbname = boxes
+dbhost = localhost
+dbuser = root
+dbpassword = 

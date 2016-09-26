@@ -1,0 +1,18 @@
+.error-msg{
+    color: #B10D0D;
+    font-size: 18px;
+    float: left;
+    margin-top: 5px;
+}
+.logged {
+    position: relative;
+    left: 450px;
+}
+
+#hijo{
+    padding-left: 10px;
+}
+
+#vivienda{
+    padding-left: 0px !important;
+}

@@ -1,0 +1,40 @@
+<?php
+
+Class UserTable {
+    protected static $_instance = null;
+
+    public static function getInstance() {
+        if (null === self::$_instance) {
+            self::$_instance = new self();
+        }
+        return (self::$_instance);
+    }   
+    
+    public function getUserById($id){
+        $user = null;
+        $db = Connection::getInstance()->getDb();
+        $stmt = $db->prepare("SELECT * FROM users WHERE id=?");
+        $stmt->execute(array($id));
+        $rows = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (count($rows)) {
+            $user = new User($rows);
+        }
+        
+        return $user;
+    }
+    
+    public function getUserByEmail($email){
+        $user = null;
+        $db = Connection::getInstance()->getDb();
+        $stmt = $db->prepare("SELECT * FROM users WHERE email=?");
+        $stmt->execute(array($email));
+        $rows = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (count($rows)) {
+            $user = new User($rows);
+        }
+        
+        return $user;
+    }
+}
